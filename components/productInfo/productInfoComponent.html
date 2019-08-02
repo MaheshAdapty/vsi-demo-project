@@ -1,0 +1,29 @@
+
+<h2>
+    Product Info
+</h2>
+
+<section>
+    <div class="productName">
+        <p>{{productInfoCtrl.productDetails.name}}</p>
+    </div>
+    <div class="productImage">
+        <img src="{{productInfoCtrl.productDetails.imgUrl}}">
+    </div>
+    <div class="productDescription">
+        <p>{{productInfoCtrl.productDetails.description | limitTo: 60 }}</p>
+    </div>
+     <!-- <div class="imgDiv">
+            <product-rating-directive></product-rating-directive>
+     </div> -->
+    <div class="productName">
+        <p>{{productInfoCtrl.productDetails.ratings}}</p>
+        <!-- <product-rating rating="productInfoCtrl.productDetails.ratings"></product-rating> -->
+    </div>
+    <div class="productName">
+        <p>{{productInfoCtrl.productDetails.price | currency}}</p>
+    </div>
+    <button type="button" class="btn btn-success addToCart-Button"
+        ng-click="productInfoCtrl.onAddToCart( {product : productInfoCtrl.productDetails} )"> Add To Cart 
+    </button>
+</section>

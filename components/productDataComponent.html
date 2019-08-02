@@ -1,0 +1,28 @@
+<!-- <p>{{productDataController.productData}}</p> -->
+<div class="outerMainDiv">
+    <div class="navBar">
+        Search: <input type="text" ng-model="searchItem">
+        <i class="fa fa-shopping-cart" style="font-size:36px"></i>
+        <p>{{ productDataController.itemCount  }}</p>
+    </div>
+    <div class="sortIndex"> 
+
+        Sort By:<select id="sortId" ng-click="productDataController.sortProducts()">
+            <option ng-repeat="index in productDataController.sortIndexList.availableOptions" value={{index.id}}>
+                {{index.name}}
+            </option>
+        </select>
+    </div>
+
+    <div class="componentDiv"> 
+        <!-- <div class="productDiv" ng-repeat= "product in productDataController.productData | filter:searchItem"> -->
+        <!-- <div class="productDiv" ng-repeat= "product in productDataController.productData  | productFilter: productDataController.sortText"> -->
+        <div class="productDiv" ng-repeat="product in productDataController.productData | filter:searchItem | productFilter: productDataController.sortText">
+           <product-info 
+            product-details="product"
+            on-add-to-cart="productDataController.addItemToCart(product)">
+        </product-info>
+        </div>
+    </div>
+   
+</div>
